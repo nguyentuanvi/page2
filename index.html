@@ -1,62 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hebrews 11:1</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bible Verse by Emotion</title>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-            background: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=1080&h=1920&q=80') no-repeat center center/cover;
-            color: white;
-            font-family: Arial, sans-serif;
-            animation: fadeIn 2s ease-in;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        .container {
-            background: rgba(0, 0, 0, 0.5);
-            padding: 20px;
-            border-radius: 10px;
-            animation: slideUp 1.5s ease-out;
-        }
-        @keyframes slideUp {
-            from { transform: translateY(50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        h1 {
-            font-size: 24px;
-            margin: 0;
-            animation: textGlow 1.5s infinite alternate;
-        }
-        @keyframes textGlow {
-            from { text-shadow: 0 0 5px white; }
-            to { text-shadow: 0 0 15px white; }
-        }
-        p {
-            font-size: 18px;
-            margin: 10px 0 0;
-            opacity: 0;
-            animation: fadeInText 2s ease-in 1s forwards;
-        }
-        @keyframes fadeInText {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 0;
+        background: linear-gradient(to bottom, #fdf6e3, #e5e5e5);
+        min-height: 100vh;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .header-image {
+        width: 100%;
+        max-height: 250px;
+        object-fit: cover;
+      }
+
+      h1 {
+        margin: 16px 0 10px;
+        font-size: 16px;
+        font-weight: bold;
+      }
+
+      h2 {
+        font-size: 20px;
+        margin-bottom: 12px;
+      }
+
+      #verse {
+        margin: 16px;
+        font-style: italic;
+        font-size: 18px;
+        max-width: 90%;
+        background: rgba(255, 255, 255, 0.7);
+        padding: 12px;
+        border-radius: 10px;
+      }
+
+      .mood-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        max-width: 400px;
+        margin-bottom: 40px;
+      }
+
+      .btn {
+        padding: 12px 16px;
+        border: none;
+        border-radius: 10px;
+        font-size: 16px;
+        cursor: pointer;
+        color: white;
+        min-width: 120px;
+      }
+
+      .happy {
+        background-color: #f4c542;
+        color: #000;
+      }
+      .angry {
+        background-color: #ec4d2e;
+      }
+      .thankful {
+        background-color: #c063c7;
+      }
+      .hopeful {
+        background-color: #62bb7d;
+      }
+      .sad {
+        background-color: #537dd6;
+      }
+      .troubled {
+        background-color: #e7c441;
+        color: #000;
+      }
+
+      /* Highlight button style */
+      .selected {
+        border: 2px solid #ffffff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      }
     </style>
-</head>
-<body>
-    <div class="container">
-        <h1>HEBREWS 11:1</h1>
-        <p>Now faith is the substance of things hoped for, the evidence of things not seen.</p>
+  </head>
+  <body>
+    <img
+      src="https://img.tripi.vn/cdn-cgi/image/width=700,height=700/https://gcs.tripi.vn/public-tripi/tripi-feed/img/482743NYZ/anh-mo-ta.png"
+      class="header-image"
+      alt="Jesus"
+    />
+    <h1>Bible Verses For The Moment</h1>
+    <h2>READ ME WHEN</h2>
+
+    <div id="verse">Click a button to get a verse...</div>
+
+    <div class="mood-buttons">
+      <button class="btn happy" onclick="showVerse('happy')">Happy</button>
+      <button class="btn sad" onclick="showVerse('sad')">Sad</button>
+      <button class="btn angry" onclick="showVerse('angry')">Angry</button>
+      <button class="btn thankful" onclick="showVerse('thankful')">
+        Thankful
+      </button>
+      <button class="btn hopeful" onclick="showVerse('hopeful')">
+        Hopeful
+      </button>
+      <button class="btn troubled" onclick="showVerse('troubled')">
+        Troubled
+      </button>
     </div>
-</body>
+
+    <script>
+      const verses = {
+        happy: [
+          "The joy of the Lord is your strength. – Nehemiah 8:10",
+          "A joyful heart is good medicine. – Proverbs 17:22",
+          "The joy of the Lord is your strength. – Nehemiah 8:10",
+          "A joyful heart is good medicine, but a crushed spirit dries up the bones. – Proverbs 17:22",
+          "You have turned for me my mourning into dancing; you have loosed my sackcloth and clothed me with gladness. – Psalm 30:11",
+          "But the fruit of the Spirit is love, joy, peace, forbearance, kindness, goodness, faithfulness, gentleness, and self-control. – Galatians 5:22-23",
+          "Blessed are those who mourn, for they will be comforted. – Matthew 5:4",
+          "I will bless the Lord at all times; his praise shall continually be in my mouth. – Psalm 34:1",
+          "Sing to the Lord a new song; sing to the Lord, all the earth. – Psalm 96:1",
+          "Rejoice in the Lord, O you righteous, and give thanks to his holy name. – Psalm 97:12",
+          "This is the day the Lord has made; let us rejoice and be glad in it. – Psalm 118:24",
+          "I have come that they may have life and have it to the full. – John 10:10",
+          "Let everything that has breath praise the Lord! – Psalm 150:6",
+          "You will make known to me the path of life; in Your presence is fullness of joy; in Your right hand there are pleasures forever.– Psalm 16:11",
+          "The Lord has done great things for us, and we are filled with joy. – Psalm 126:3",
+          "The joy of the Lord is your strength. – Nehemiah 8:10",
+          "Light in a messenger’s eyes brings joy to the heart, and good news gives health to the bones. – Proverbs 15:30",
+          "For the Lord takes delight in his people; he crowns the humble with victory. – Psalm 149:4",
+          "The Lord is my strength and my shield; my heart trusts in him, and he helps me. – Psalm 28:7",
+          "The Lord is near to all who call on him, to all who call on him in truth. – Psalm 145:18",
+          "Blessed are those who have learned to acclaim you, who walk in the light of your presence, Lord. – Psalm 89:15",
+        ],
+        sad: [
+          "The Lord is close to the brokenhearted. – Psalm 34:18",
+          "Weeping may last through the night, but joy comes in the morning. – Psalm 30:5",
+          "The Lord is close to the brokenhearted and saves those who are crushed in spirit. – Psalm 34:18",
+          "He heals the brokenhearted and binds up their wounds. – Psalm 147:3",
+          "Weeping may stay for the night, but rejoicing comes in the morning. – Psalm 30:5",
+          "Cast all your anxiety on him because he cares for you. – 1 Peter 5:7",
+          "The Lord is near to the brokenhearted and saves those who are crushed in spirit. – Psalm 34:18",
+          "My soul is downcast within me; therefore I will remember you. – Psalm 42:6",
+          "For I will restore the fortunes of the land as they were before. – Jeremiah 33:11",
+          "You keep track of all my sorrows. You have collected all my tears in your bottle. – Psalm 56:8",
+          "Even though I walk through the darkest valley, I will fear no evil, for you are with me. – Psalm 23:4",
+          "The Lord is a refuge for the oppressed, a stronghold in times of trouble. – Psalm 9:9",
+          "Why, my soul, are you downcast? Why so disturbed within me? – Psalm 42:5",
+          "I have fought the good fight, I have finished the race, I have kept the faith. – 2 Timothy 4:7",
+          "He has sent me to bind up the brokenhearted, to proclaim freedom for the captives. – Isaiah 61:1",
+          "I will not forget you! See, I have engraved you on the palms of my hands. – Isaiah 49:15-16",
+          "For the mountains may depart and the hills be removed, but my steadfast love shall not depart from you. – Isaiah 54:10",
+          "O Lord, my God, I cried to you for help, and you have healed me. – Psalm 30:2",
+          "For I know the plans I have for you, declares the Lord, plans for welfare and not for evil. – Jeremiah 29:11",
+          "Though I walk in the midst of trouble, you preserve my life. – Psalm 138:7",
+          "But I will restore you to health and heal your wounds, declares the Lord. – Jeremiah 30:17",
+          "The Lord is near to the brokenhearted and saves the crushed in spirit. – Psalm 34:18",
+        ],
+        angry: [
+          "In your anger do not sin. – Ephesians 4:26",
+          "A gentle answer turns away wrath. – Proverbs 15:1",
+        ],
+        thankful: ["Give thanks to the Lord, for he is good. – Psalm 107:1"],
+        hopeful: [
+          "For I know the plans I have for you, declares the Lord. – Jeremiah 29:11",
+        ],
+        troubled: [
+          "Cast all your anxiety on Him because He cares for you. – 1 Peter 5:7",
+        ],
+      };
+
+      function showVerse(emotion) {
+        const pool = verses[emotion];
+        const random = pool[Math.floor(Math.random() * pool.length)];
+        document.getElementById("verse").textContent = random;
+
+        // Remove the selected class from all buttons
+        const buttons = document.querySelectorAll(".btn");
+        buttons.forEach((button) => button.classList.remove("selected"));
+
+        // Add the selected class to the clicked button
+        const selectedButton = document.querySelector(`.${emotion}`);
+        selectedButton.classList.add("selected");
+      }
+
+      // Set default emotion to "happy" on page load
+      window.onload = function () {
+        showVerse("happy");
+        document.querySelector(".happy").classList.add("selected");
+      };
+    </script>
+  </body>
 </html>
