@@ -3,51 +3,59 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bible Verse by Emotion</title>
-    <style>
+    <title>The Healing Words</title> <style>
       body {
         font-family: Arial, sans-serif;
         text-align: center;
         margin: 0;
-        /* background: linear-gradient(to bottom, #fdf6e3, #e5e5e5); */
-        /*background: url('https://t3.ftcdn.net/jpg/01/82/36/22/360_F_182362279_mftijArjVNEa8ngWA8JN9hCome8zJTqw.jpg') no-repeat center center fixed;*/
         background: url('293562-follow-your-own-light-sunset-wallpaper-beach-sunset-wallpaper.jpg');
         background-size: cover;
         min-height: 100vh;
-        color: #333;
+        /* Thay đổi màu chữ mặc định cho toàn bộ trang */
+        color: #f0f0f0; /* Ví dụ: màu xám nhạt cho chữ trên nền tối */
+        /* Thay đổi cỡ chữ mặc định cho toàn bộ trang */
+        font-size: 16px; /* Ví dụ: cỡ chữ cơ bản 16px */
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: center; /* Căn giữa theo chiều ngang */
+        justify-content: center; /* THAY ĐỔI MỚI: Căn giữa theo chiều dọc */
       }
 
-      .header-image {
+      /* .header-image không còn được sử dụng trong HTML, có thể xóa nếu không cần */
+      /* .header-image {
         width: 100%;
         max-height: 250px;
         object-fit: cover;
-      }
+      } */
 
       h1 {
         margin: 16px 0 10px;
-        font-size: 24px;
+        /* Thay đổi cỡ chữ cho tiêu đề chính */
+        font-size: 28px; /* Ví dụ: 28px */
         font-weight: bold;
-        color: #ffffff;
+        /* Thay đổi màu chữ cho tiêu đề chính */
+        color: #ffffff; /* Ví dụ: màu trắng */
       }
 
       h2 {
-        font-size: 20px;
+        /* Thay đổi cỡ chữ cho tiêu đề phụ "READ ME WHEN" */
+        font-size: 22px; /* Ví dụ: 22px */
         margin-bottom: 12px;
         /* Thay đổi màu chữ cho tiêu đề phụ */
-        color: #ffffff; /* Ví dụ: màu trắng */
+        color: #ffcc00; /* Ví dụ: màu vàng */
       }
 
       #verse {
         margin: 16px;
         font-style: italic;
-        font-size: 18px;
+        /* Thay đổi cỡ chữ cho câu trích dẫn/Kinh thánh */
+        font-size: 24px; /* Ví dụ: 24px */
         max-width: 90%;
         background: rgba(255, 255, 255, 0.7);
         padding: 12px;
         border-radius: 10px;
+        /* Thay đổi màu chữ cho câu trích dẫn/Kinh thánh */
+        color: #0056b3; /* Ví dụ: màu xanh đậm */
       }
 
       .mood-buttons {
@@ -63,9 +71,11 @@
         padding: 12px 16px;
         border: none;
         border-radius: 10px;
-        font-size: 16px;
+        /* Cỡ chữ cho các nút */
+        font-size: 16px; /* Ví dụ: 16px */
         cursor: pointer;
-        color: white;
+        /* Màu chữ cho các nút */
+        color: white; /* Giữ nguyên màu trắng hoặc thay đổi */
         min-width: 120px;
         transition: transform 0.2s ease-in-out; /* Add transition for hover effect */
       }
@@ -80,8 +90,8 @@
       .hopeful,
       .sad,
       .troubled {
-        background-color: #f4c542;
-        color: #000;
+        background-color: #f4c542; /* Màu nền của nút */
+        color: #000; /* Màu chữ của nút (hiện đang là đen) */
       }
 
       /* Highlight button style */
@@ -92,7 +102,6 @@
     </style>
   </head>
   <body>
-    
     <h1>The Healing Words</h1>
 
     <div id="verse">Loading verses...</div>
@@ -140,8 +149,7 @@
           const jsonString = text.substring(text.indexOf('{'), text.lastIndexOf('}') + 1);
           const data = JSON.parse(jsonString);
 
-          // Bắt đầu từ hàng thứ 2 (chỉ số 1) để bỏ qua tiêu đề
-          const rows = data.table.rows.slice(1); 
+          const rows = data.table.rows.slice(1);
 
           rows.forEach(row => {
             for (const emotion in emotionColumnMap) {
